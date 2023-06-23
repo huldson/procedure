@@ -14,9 +14,8 @@ internal class Program
         
         Console.WriteLine("primeiro"+bancoDeDados.PegarQuantidade());
         bancoDeDados.Unificar();
-        bancoDeDados.Unificar();
         Console.WriteLine("segundo:"+bancoDeDados.PegarQuantidade());
-
+        Console.WriteLine(bancoDeDados.Exbir());
 
     }
 }

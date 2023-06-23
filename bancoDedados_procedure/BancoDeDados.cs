@@ -24,40 +24,28 @@ namespace bancoDedados_procedure
             SqlDataReader respostaExibir = comandoexbir.ExecuteReader();
             List<DadosCliente> clienteLista = new List<DadosCliente>();
             while (respostaExibir.Read())
-            { DadosCliente cliente = new DadosCliente(respostaExibir["telefone"].ToString(), respostaExibir["endereco"].ToString());
+            { DadosCliente cliente = new DadosCliente(respostaExibir["telefone"].ToString(), respostaExibir["endereco"].ToString(), int.Parse(respostaExibir["entityXD"].ToString()));
 
                 clienteLista.Add(cliente);
             }
             conexao.Close();
+            foreach(DadosCliente elemento in clienteLista)
+            {
+                Console.WriteLine("id:"+elemento.id+" tel:"+elemento.telefone+" endereço:"+elemento.endereco );
+            }
             return clienteLista;
         }
 
         public void Unificar()
         {
-            int idsCadastrados = PegarQuantidade();
-            string telefone;
-            string endereco;
-            int id;
+            
             conexao.Open();
-            SqlCommand comandoBuscarDados = new SqlCommand("buscarDados", this.conexao);
-            SqlDataReader respostaDeDados = comandoBuscarDados.ExecuteReader();
-            List<DadosCliente> listaDados = new List<DadosCliente>();
-            while (respostaDeDados.Read())
-            {
-                telefone = respostaDeDados["telefone"].ToString();
-                endereco = respostaDeDados["endereco"].ToString();
-                id = int.Parse(respostaDeDados["entityID"].ToString());
-                
-                if (id > idsCadastrados)
-                {
-                    DadosCliente client = new DadosCliente(telefone, endereco);
-                    listaDados.Add(client);
-                  // incluirNaNovaTabela(telefone, endereco);
-
-                }
-            }
+            SqlCommand comandoBuscarDados = new SqlCommand("inserirDadosDeUmaVez", this.conexao);
+            comandoBuscarDados.ExecuteReader();
+           
+            
             conexao.Close();
-            incluirNaNovaTabela(listaDados);
+            
         }
         public int PegarQuantidade()
         {
@@ -67,17 +55,6 @@ namespace bancoDedados_procedure
             conexao.Close();
             return numero;
         }
-        public void incluirNaNovaTabela(List<DadosCliente> lista){
-            conexao.Open();
-            foreach (DadosCliente cliente in lista)
-            {
-                SqlCommand comandoInserir = new SqlCommand("inserirDadosNovaTabela", this.conexao);
-                comandoInserir.CommandType = System.Data.CommandType.StoredProcedure;
-                comandoInserir.Parameters.AddWithValue("@telefone", cliente.telefone);
-                comandoInserir.Parameters.AddWithValue("@endereco",cliente.endereco);
-                comandoInserir.ExecuteScalar();
-            }
-            conexao.Close();
-        }
+        
     }
 }

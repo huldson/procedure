@@ -20,5 +20,11 @@ namespace bancoDedados_procedure
             this.telefone = telefone;
             this.endereco = endereco;
         }
+        public DadosCliente(string telefone, string endereco, int id)
+        {
+            this.id= id;
+            this.telefone = telefone;
+            this.endereco = endereco;
+        }
     }
 }

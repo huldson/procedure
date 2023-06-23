@@ -11,6 +11,6 @@ namespace bancoDedados_procedure
         public List<DadosCliente> Exbir();
         public void Unificar();
         public int PegarQuantidade();
-        public void incluirNaNovaTabela(List<DadosCliente> lista);
+       
     }
 }
