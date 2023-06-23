@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bancoDedados_procedure", "bancoDedados_procedure\bancoDedados_procedure.csproj", "{4D1D4255-ED9A-4166-B6D7-AC98B4A8DB57}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D1D4255-ED9A-4166-B6D7-AC98B4A8DB57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D1D4255-ED9A-4166-B6D7-AC98B4A8DB57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D1D4255-ED9A-4166-B6D7-AC98B4A8DB57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D1D4255-ED9A-4166-B6D7-AC98B4A8DB57}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {59DDC02B-D6DD-4123-A3EA-32096E027CF8}
+	EndGlobalSection
+EndGlobal
